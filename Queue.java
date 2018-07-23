@@ -42,20 +42,12 @@ class LinkedList {
       System.out.println(snode.data);
     }
   }
-  /*Setting the last node as null and printing the rest*/
-  public void delete()
-  {
-    if(head == null)
-        return;
-    Node tempo = this.head;
-    while(tempo.next.next != null) {
-          tempo = tempo.next;
-      }
 
-      tempo.next = null;
-      for(tempo = this.head; tempo != null; tempo = tempo.next)
-      System.out.println(tempo.data);
-  }
+  public void delete () {
+		Node t=head;
+		head=head.next;
+		t.next=null;
+	}
 }
 
 public class Queue {
@@ -71,7 +63,9 @@ public class Queue {
     b.print();
     System.out.println("After first deletion");
     b.delete();
+    b.print();
     System.out.println("After second deletion");
     b.delete();
+    b.print();
   }
 }
