@@ -42,12 +42,12 @@ class LinkedList {
       System.out.println(snode.data);
     }
   }
+  public void delete() {
+    Node t=head;
+    head=head.next;
+    t.next=null;
+  }
 
-  public void delete () {
-		Node t=head;
-		head=head.next;
-		t.next=null;
-	}
 }
 
 public class Queue {
