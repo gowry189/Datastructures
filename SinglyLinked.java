@@ -3,50 +3,48 @@ class Node {
 	Node next;
 	int data;
 	public Node(int data) {
-		this.data=data;
-		this.next=null;
+		this.data = data;
+		this.next = null;
 	}
 }
 class Linked {
 	Node head;
 	public Linked() {
-	this.head=null;
+	this.head = null;
 	}
 
 	public void insertFirst(int data) {
-	Node newnode=new Node(data);
-	if(this.head==null){
-		head=newnode;
+	Node newnode = new Node(data);
+	if(this.head == null){
+		head = newnode;
 		return;
 		}
-	newnode.next=head;
-	head=newnode;
+	newnode.next = head;
+	head = newnode;
 	}
 
-
-
-	public void insertPos(int data ,int pos) {
-		Node newnode=new Node(data);
+	public void insertPos(int data, int pos) {
+		Node newnode = new Node(data);
 		Node tempo;
 		int i;
-		for(i=0,tempo=this.head; tempo!=null && i<pos-2; tempo=tempo.next, i++);
-		newnode.next=tempo.next;
-		tempo.next=newnode;
+		for(i = 0, tempo = this.head; tempo != null && i < pos-2; tempo = tempo.next, i++);
+		newnode.next = tempo.next;
+		tempo.next = newnode;
 	}
 
 	public void insertLast(int data) {
-		Node newnode=new Node(data);
-		if(this.head==null){
-		head=newnode;
+		Node newnode = new Node(data);
+		if(this.head == null){
+		head = newnode;
 		return;
 		}
 		Node current;
-	for(current=this.head; current.next!=null; current=current.next);
-		current.next=newnode;
+	for(current = this.head; current.next != null; current = current.next);
+		current.next = newnode;
 	}
 
 	public boolean isEmpty() {
-		if(this.head==null)
+		if(this.head == null)
 			return true;
 		else
 			return false;
@@ -54,8 +52,8 @@ class Linked {
 
 	public void isLastElement(int d) {
 		Node curren;
-		for(curren=this.head; curren.next!=null; curren=curren.next);
-			if (curren.data==d)
+		for(curren = this.head; curren.next != null; curren = curren.next);
+			if (curren.data == d)
 				System.out.println("YES");
 			else
 				System.out.println("NO");
@@ -63,34 +61,33 @@ class Linked {
 	}
 
 	public void deleteFront() {
-		Node t=head;
-		head=head.next;
-		t.next=null;
+		Node t = head;
+		head = head.next;
+		t.next = null;
 	}
 
 	public void deleteLast() {
 		Node tem;
-		for(tem=this.head; tem.next.next!=null; tem=tem.next);
-			tem.next=null;
+		for(tem = this.head; tem.next.next != null; tem = tem.next);
+			tem.next = null;
 	}
 
 	public void deletePos (int p) {
 		Node curr;
 		int i;
-		for (i = 0, curr = this.head; curr.next.next != null && i<p-1; curr=curr.next, i++);
+		for (i = 0, curr = this.head; curr.next.next != null && i < p-1; curr = curr.next, i++);
 			curr.next = curr.next.next;
-
-	}
+}
 
 	public void print() {
 	Node temp;
-	for(temp=this.head; temp!=null; temp=temp.next)
+	for(temp = this.head; temp != null; temp = temp.next)
 	System.out.println(temp.data);
 	}
 
 	public void sortedInsert(int data)
 	    {
-					Node newnode=new Node(data);
+					Node newnode = new Node(data);
 	         Node current;
 	         if (head == null || head.data >= newnode.data)
 	         {
@@ -110,9 +107,9 @@ class Linked {
 
 		public void delData(int d) {
 			Node crnt;
-			int i=0;
-			for(crnt=this.head; crnt!=null;crnt=crnt.next) {
-				if(crnt.data==d) {
+			int i = 0;
+			for(crnt = this.head; crnt != null; crnt = crnt.next) {
+				if(crnt.data == d) {
 					i++;
 					deletePos(i);
 				}
@@ -120,12 +117,12 @@ class Linked {
 		}
 
 		public void printEven() {
-		Node temp=this.head.next;
+		Node temp = this.head.next;
 		System.out.println(temp.data);
-		while(temp.next!=null) {
-			temp=temp.next.next;
+		while(temp.next != null) {
+			temp = temp.next.next;
 			System.out.println(temp.data);
-		}
+			}
 		}
 }
 
