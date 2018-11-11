@@ -43,7 +43,7 @@ public class binarySearchTree {
 			 r.left=insert(r.left,d);
 		 }
 
-			 return r;
+			return r;
 
 	 }
 	Node del(Node r, int d) {
@@ -74,7 +74,23 @@ public class binarySearchTree {
 		}
 		return r;
 	}
-	boolean search(Node r , )
+	boolean search(Node r , int element) {
+		if(r == null) {
+			return false;
+		}
+		if(r.data == element) {
+			return true;
+		}
+		else {
+			if(r.data>element) {
+				return search(r.left,element);
+			}
+			else {
+				return search(r.right,element);
+			}
+		}
+		
+	}
 	void inorder(Node r) {
 		if(r == null) {
 			return;
@@ -99,6 +115,57 @@ public class binarySearchTree {
 		postOrder(r.left);
 		postOrder(r.right);
 	}
-	
+	int height(Node r) {
+		if(r == null) {
+			return 0;
+		}
+		int right = 1+height(r.right);
+		int left = 1+height(r.left);
+		if(left>right) {
+			return left;
+		}
+		else {
+			return right;
+		}
 }
- 
+	class count {
+		int c = 0;
+	}
+	void kthLargestUtil(Node node,int k, count C) {
+		 if (node == null || C.c >= k) 
+	            return; 
+	          
+
+	        this.kthLargestUtil(node.right, k, C);  
+	        C.c++; 
+	          
+	        if (C.c == k) { 
+	            System.out.println(k + "th largest element is " +  
+	                                                 node.data); 
+	            return; 
+	        } 
+	          
+
+	        this.kthLargestUtil(node.left, k, C);  
+	}
+	void kthLargest(int k) 
+    { 
+		count C = new count();
+        this.kthLargestUtil(this.root, k, C); 
+    } 
+	/*void kthSmallestUtil(Node r,int k, count q) {
+		if(k == q.c) {
+			return; 
+		}
+		this.kthSmallestUtil(r.left,k,q);
+		q.c++;
+		if(q.c==k) {
+			System.out.println(r.data);
+		}
+		this.kthSmallestUtil(r.right,k,q);
+	}
+	void kthSmallest(int k) {
+		count q = new count();
+		this.kthSmallestUtil(this.root,k,q);
+	}*/
+}
